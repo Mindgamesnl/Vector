@@ -1,6 +1,6 @@
 package camera
 
-import "craftmend.com/Mindgamesnl/Vector/api"
+import "github.com/Mindgamesnl/Vector/api"
 
 type CameraModule struct {
 

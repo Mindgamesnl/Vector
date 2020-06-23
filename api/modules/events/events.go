@@ -1,6 +1,6 @@
 package events
 
-import "craftmend.com/Mindgamesnl/Vector/api"
+import "github.com/Mindgamesnl/Vector/api"
 
 type EventModule struct {
 

@@ -1,6 +1,6 @@
 package world
 
-import "craftmend.com/Mindgamesnl/Vector/api"
+import "github.com/Mindgamesnl/Vector/api"
 
 type MapNavModule struct {
 

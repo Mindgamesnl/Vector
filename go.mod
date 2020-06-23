@@ -1,4 +1,4 @@
-module craftmend.com/Mindgamesnl/Vector
+module github.com/Mindgamesnl/Vector
 
 go 1.14
 

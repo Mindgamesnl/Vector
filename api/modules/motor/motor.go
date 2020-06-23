@@ -1,6 +1,6 @@
 package motor
 
-import "craftmend.com/Mindgamesnl/Vector/api"
+import "github.com/Mindgamesnl/Vector/api"
 
 type MotorModule struct {
 

@@ -1,6 +1,6 @@
 package screen
 
-import "craftmend.com/Mindgamesnl/Vector/api"
+import "github.com/Mindgamesnl/Vector/api"
 
 type ScreenModule struct {
 	

@@ -1,6 +1,6 @@
 package state
 
-import "craftmend.com/Mindgamesnl/Vector/api/enums"
+import "github.com/Mindgamesnl/Vector/api/enums"
 
 type RobotState struct {
 	Status byte // current state of the robot

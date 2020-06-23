@@ -1,25 +1,33 @@
 package api
 
 import (
-	"craftmend.com/Mindgamesnl/Vector/api/modules/animation"
-	"craftmend.com/Mindgamesnl/Vector/api/modules/audio"
-	"craftmend.com/Mindgamesnl/Vector/api/modules/behavior"
-	"craftmend.com/Mindgamesnl/Vector/api/modules/camera"
-	"craftmend.com/Mindgamesnl/Vector/api/modules/control"
-	"craftmend.com/Mindgamesnl/Vector/api/modules/events"
-	"craftmend.com/Mindgamesnl/Vector/api/modules/face"
-	"craftmend.com/Mindgamesnl/Vector/api/modules/motor"
-	"craftmend.com/Mindgamesnl/Vector/api/modules/photo"
-	"craftmend.com/Mindgamesnl/Vector/api/modules/screen"
-	"craftmend.com/Mindgamesnl/Vector/api/modules/vision"
-	"craftmend.com/Mindgamesnl/Vector/api/modules/world"
-	"craftmend.com/Mindgamesnl/Vector/api/helpers"
-	"craftmend.com/Mindgamesnl/Vector/api/math"
-	"craftmend.com/Mindgamesnl/Vector/api/objects"
-	"craftmend.com/Mindgamesnl/Vector/api/state"
+	"github.com/Mindgamesnl/Vector/api/modules/animation"
+	"github.com/Mindgamesnl/Vector/api/modules/audio"
+	"github.com/Mindgamesnl/Vector/api/modules/behavior"
+	"github.com/Mindgamesnl/Vector/api/modules/camera"
+	"github.com/Mindgamesnl/Vector/api/modules/control"
+	"github.com/Mindgamesnl/Vector/api/modules/events"
+	"github.com/Mindgamesnl/Vector/api/modules/face"
+	"github.com/Mindgamesnl/Vector/api/modules/motor"
+	"github.com/Mindgamesnl/Vector/api/modules/photo"
+	"github.com/Mindgamesnl/Vector/api/modules/screen"
+	"github.com/Mindgamesnl/Vector/api/modules/vision"
+	"github.com/Mindgamesnl/Vector/api/modules/world"
+	"github.com/Mindgamesnl/Vector/api/helpers"
+	"github.com/Mindgamesnl/Vector/api/math"
+	"github.com/Mindgamesnl/Vector/api/objects"
+	"github.com/Mindgamesnl/Vector/api/state"
 	"time"
 )
 
+/*
+Entry point of the api.
+You create a robot using
+
+robot := InitializeRobot(robot ip)
+
+and can get started from there
+*/
 type Robot struct {
 	// events
 	ErrorHandlers        helpers.EventHandler
@@ -46,8 +54,8 @@ type Robot struct {
 	IsConnected          bool                        // if the robot is connected or nah
 	IsDisconnecting      bool                        // wetter the connection is being shut down
 	RobotAcceleration    math.Acceleration           // the current accelerometer reading
-	CarryingObjectId     int8                       // the ID of the object currently being carried (-1 if none)
-	HeadTrackingObjectId int8                       // the ID of the object the head is tracking to (-1 if none)
+	CarryingObjectId     int8                        // the ID of the object currently being carried (-1 if none)
+	HeadTrackingObjectId int8                        // the ID of the object the head is tracking to (-1 if none)
 	AngularVelocity      math.Acceleration           // the current gyroscope reading (x, y, z)
 	HeadAngleRad         float32                     // Vector's head angle (up/down) in radians
 	LastImageTimestamp   time.Time                   // the robot's timestamp for the last image seen.
@@ -88,16 +96,16 @@ func InitializeRobot(ip string) Robot {
 	r.IsConnected = false
 	r.IsDisconnecting = false
 	r.RobotAcceleration = math.Acceleration{
-		X:0,
-		Y:0,
-		Z:0,
+		X: 0,
+		Y: 0,
+		Z: 0,
 	}
 	r.CarryingObjectId = -1
 	r.HeadTrackingObjectId = -1
 	r.AngularVelocity = math.Acceleration{
-		X:0,
-		Y:0,
-		Z:0,
+		X: 0,
+		Y: 0,
+		Z: 0,
 	}
 	r.HeadAngleRad = 0
 	r.LastImageTimestamp = time.Now()
@@ -113,4 +121,10 @@ func InitializeRobot(ip string) Robot {
 	r.IpV4 = ip
 
 	return r
+}
+
+func (rob Robot) Connect() {
+	if rob.IsConnected {
+		return
+	}
 }
