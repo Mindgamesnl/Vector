@@ -42,7 +42,7 @@ type Robot struct {
 	World         world.WorldModule
 	MapNavigation world.MapNavModule
 
-	// attributes
+	// state
 	IsConnected          bool                        // if the robot is connected or nah
 	IsDisconnecting      bool                        // wetter the connection is being shut down
 	RobotAcceleration    math.Acceleration           // the current accelerometer reading
@@ -58,4 +58,18 @@ type Robot struct {
 	Status               state.RobotState            // current state and activity of the robot
 	TouchSensor          objects.TouchSensorData     // current state of the touch sensor on the back
 	IpV4                 string                      // local ip address of the robot
+}
+
+func InitializeRobot() Robot {
+	r := Robot{}
+
+	r.ErrorHandlers = helpers.CreateEventHandler()
+	r.ConnectedHandlers = helpers.CreateEventHandler()
+	r.DisconnectedHandlers = helpers.CreateEventHandler()
+	r.DelocalizedHandlers = helpers.CreateEventHandler()
+
+	r.Control = control.CreateControlModule()
+	r.Camera = camera.CreateCameraModule()
+	r.Behavior = behavior.CreateBehaviorModule()
+	
 }
