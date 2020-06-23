@@ -7,3 +7,9 @@ type ProximityDataSensor struct {
 	IsUnobstructed bool
 	SignalQuality  float32
 }
+
+func CreateZeroProximitySensorData() ProximityDataSensor {
+	return ProximityDataSensor{
+		-1, false, false, false, 0,
+	}
+}
