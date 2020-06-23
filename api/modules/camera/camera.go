@@ -1,11 +1,11 @@
 package camera
 
-import "github.com/Mindgamesnl/Vector/api"
+
 
 type CameraModule struct {
 
 }
 
-func CreateCameraModule(api.Robot) CameraModule {
+func CreateCameraModule() CameraModule {
 	return CameraModule{}
 }

@@ -3,7 +3,7 @@ package state
 import "github.com/Mindgamesnl/Vector/api/enums"
 
 type RobotState struct {
-	Status byte // current state of the robot
+	Status int64 // current state of the robot
 }
 
 func CreateIdleRobotStatus() RobotState {

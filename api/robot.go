@@ -78,47 +78,49 @@ func InitializeRobot(ip string) Robot {
 	r.DelocalizedHandlers = helpers.CreateEventHandler()
 
 	// initialize modules
-	r.Control = control.CreateControlModule(r)
-	r.Camera = camera.CreateCameraModule(r)
-	r.Behavior = behavior.CreateBehaviorModule(r)
-	r.Motors = motor.CreateMotorModule(r)
-	r.Photos = photo.CreatePhotoModule(r)
-	r.Events = events.CreateEventModule(r)
-	r.Animation = animation.CreateAnimationModule(r)
-	r.Face = face.CreateFaceModule(r)
-	r.Audio = audio.CreateAudioModule(r)
-	r.Screen = screen.CreateScreenModule(r)
-	r.Vision = vision.CreateVisionModule(r)
-	r.World = world.CreateWorldModule(r)
-	r.MapNavigation = world.CreateMapNavModule(r)
+	r.Control = control.CreateControlModule()
+	r.Camera = camera.CreateCameraModule()
+	r.Behavior = behavior.CreateBehaviorModule()
+	r.Motors = motor.CreateMotorModule()
+	r.Photos = photo.CreatePhotoModule()
+	r.Events = events.CreateEventModule()
+	r.Animation = animation.CreateAnimationModule()
+	r.Face = face.CreateFaceModule()
+	r.Audio = audio.CreateAudioModule()
+	r.Screen = screen.CreateScreenModule()
+	r.Vision = vision.CreateVisionModule()
+	r.World = world.CreateWorldModule()
+	r.MapNavigation = world.CreateMapNavModule()
 
 	// default states
+	r.Status = state.CreateIdleRobotStatus()
 	r.IsConnected = false
 	r.IsDisconnecting = false
-	r.RobotAcceleration = math.Acceleration{
-		X: 0,
-		Y: 0,
-		Z: 0,
-	}
 	r.CarryingObjectId = -1
 	r.HeadTrackingObjectId = -1
+	r.HeadAngleRad = 0
+	r.LastImageTimestamp = time.Now()
+	r.LeftWheelSpeedMmPS = 0
+	r.RightWheelSpeedMmPS = 0
+	r.IpV4 = ip
+
+	// sensors
+	r.Location = math.CreateZeroPose()
+	r.ProximitySensor = objects.CreateZeroProximitySensorData()
+	r.TouchSensor = objects.TouchSensorData{
+		IsBeingTouched: false,
+		RawTouchValue:  0,
+	}
 	r.AngularVelocity = math.Acceleration{
 		X: 0,
 		Y: 0,
 		Z: 0,
 	}
-	r.HeadAngleRad = 0
-	r.LastImageTimestamp = time.Now()
-	r.LeftWheelSpeedMmPS = 0
-	r.RightWheelSpeedMmPS = 0
-	r.Location = math.CreateZeroPose()
-	r.ProximitySensor = objects.CreateZeroProximitySensorData()
-	r.Status = state.CreateIdleRobotStatus()
-	r.TouchSensor = objects.TouchSensorData{
-		IsBeingTouched: false,
-		RawTouchValue:  0,
+	r.RobotAcceleration = math.Acceleration{
+		X: 0,
+		Y: 0,
+		Z: 0,
 	}
-	r.IpV4 = ip
 
 	return r
 }

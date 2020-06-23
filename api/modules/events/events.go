@@ -1,11 +1,11 @@
 package events
 
-import "github.com/Mindgamesnl/Vector/api"
+
 
 type EventModule struct {
 
 }
 
-func CreateEventModule(api.Robot) EventModule {
+func CreateEventModule() EventModule {
 	return EventModule{}
 }

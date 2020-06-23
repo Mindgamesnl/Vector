@@ -1,23 +1,23 @@
 package enums
 
 type RobotStatusValues struct {
-	IsMoving           byte
-	IsCarryingBlock    byte
-	IsPickingOrPlacing byte
-	IsPickedUp         byte
-	IsButtonPressed    byte
-	IsFalling          byte
-	IsAnimating        byte
-	IsPathing          byte
-	LiftInPos          byte
-	HeadInPos          byte
-	CalmPowerMode      byte
-	IsOnCharger        byte
-	IsCharging         byte
-	CliffDetected      byte
-	AreWheelsMoving    byte
-	IsBeingHeld        byte
-	IsMotionDetected   byte
+	IsMoving           int64
+	IsCarryingBlock    int64
+	IsPickingOrPlacing int64
+	IsPickedUp         int64
+	IsButtonPressed    int64
+	IsFalling          int64
+	IsAnimating        int64
+	IsPathing          int64
+	LiftInPos          int64
+	HeadInPos          int64
+	CalmPowerMode      int64
+	IsOnCharger        int64
+	IsCharging         int64
+	CliffDetected      int64
+	AreWheelsMoving    int64
+	IsBeingHeld        int64
+	IsMotionDetected   int64
 }
 
 var RobotStatus = RobotStatusValues{

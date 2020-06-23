@@ -1,11 +1,11 @@
 package photo
 
-import "github.com/Mindgamesnl/Vector/api"
+
 
 type PhotoModule struct {
 
 }
 
-func CreatePhotoModule(api.Robot) PhotoModule {
+func CreatePhotoModule() PhotoModule {
 	return PhotoModule{}
 }
